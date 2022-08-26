@@ -1,5 +1,7 @@
 package ConversorMoedas;
 
+import java.text.DecimalFormat;
+
 public enum Moeda {
     BRL, USD, EUR;
 
@@ -9,6 +11,7 @@ public enum Moeda {
     private String simbolo;
 
     public void setQuantidade(String quantidade) {
+
         this.quantidade = Double.parseDouble(quantidade);
     }
 

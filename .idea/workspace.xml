@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f6dff68-2095-4138-919d-f9224c38c1f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conversor-moedas-challenge.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ConversorMoedas/MoedasAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Menu.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "228",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.keymap"

@@ -3,6 +3,7 @@ package ConversorMoedas;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class JanelaMoedas {
     private JPanel panel1;
@@ -10,6 +11,7 @@ public class JanelaMoedas {
     private JComboBox comboBox1;
     private JComboBox comboBox2;
     private JButton button1;
+    private JLabel resultLabel;
 
     private String[] moedas = {"BRL", "USD", "EUR"};
 
@@ -72,7 +74,11 @@ public class JanelaMoedas {
                         break;
                 }
 
-                JOptionPane.showMessageDialog(getPanel1(), "O valor convertido é " + simbolo +  resultado);
+                String resultadoFormatado = String.format("%.2f", resultado);
+
+                resultLabel.setText(simbolo + resultadoFormatado);
+
+//                JOptionPane.showMessageDialog(getPanel1(), "O valor convertido é " + simbolo +  resultado);
             }
         });
     }
