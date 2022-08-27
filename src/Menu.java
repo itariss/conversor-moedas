@@ -3,6 +3,7 @@ import ConversorMoedas.JanelaMoedas;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Menu {
     private JComboBox optionsBox;
@@ -10,7 +11,7 @@ public class Menu {
     private JButton button1;
     private JLabel optionsLabel;
 
-    public Menu() {
+    public Menu() throws IOException, InterruptedException {
         JFrame app = new JFrame();
         app.setVisible(true);
         app.setSize(600, 400);

@@ -3,9 +3,10 @@ package ConversorMoedas;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.text.DecimalFormat;
 
-public class JanelaMoedas {
+public class JanelaMoedas extends MoedasAPI {
     private JPanel panel1;
     private JTextField textField1;
     private JComboBox comboBox1;
@@ -20,9 +21,10 @@ public class JanelaMoedas {
         return panel1;
     }
 
-    public JanelaMoedas() {
+    public JanelaMoedas() throws IOException, InterruptedException {
+        super();
 
-        selecionarOpcoes();
+        this.selecionarOpcoes();
 
         comboBox1.addActionListener(new ActionListener() {
             @Override
@@ -36,49 +38,28 @@ public class JanelaMoedas {
             public void actionPerformed(ActionEvent e) {
 
                 double resultado = 0;
-                String simbolo = "";
+                String quantidade = textField1.getText().replace(",", ".");
+                String moedaUm = comboBox1.getSelectedItem().toString();
+                String moedaDois = comboBox2.getSelectedItem().toString();
+                String simbolo = Moeda.valueOf(moedaDois).getSimboloMoeda();
 
-                switch (comboBox1.getSelectedItem().toString()) {
-                    case "BRL":
-                        Moeda.BRL.setQuantidade(textField1.getText());
-                        if (comboBox2.getSelectedItem().toString().equals("USD")) {
-                           resultado =  Moeda.BRL.converte(Moeda.USD);
-                           simbolo = Moeda.USD.getSimboloMoeda();
-                        }
-                        if (comboBox2.getSelectedItem().toString().equals("EUR")) {
-                            resultado = Moeda.BRL.converte(Moeda.EUR);
-                            simbolo = Moeda.EUR.getSimboloMoeda();
-                        }
-                        break;
-                    case "USD":
-                        Moeda.USD.setQuantidade(textField1.getText());
-                        if (comboBox2.getSelectedItem().toString().equals("BRL")) {
-                            resultado = Moeda.USD.converte(Moeda.BRL);
-                            simbolo = Moeda.BRL.getSimboloMoeda();
-                        }
-                        if (comboBox2.getSelectedItem().toString().equals("EUR")) {
-                            resultado = Moeda.USD.converte(Moeda.EUR);
-                            simbolo = Moeda.EUR.getSimboloMoeda();
-                        }
-                        break;
-                    case "EUR":
-                        Moeda.EUR.setQuantidade(textField1.getText());
-                        if (comboBox2.getSelectedItem().toString().equals("BRL")) {
-                            resultado = Moeda.EUR.converte(Moeda.BRL);
-                            simbolo = Moeda.BRL.getSimboloMoeda();
-                        }
-                        if (comboBox2.getSelectedItem().toString().equals("USD")) {
-                            resultado = Moeda.EUR.converte(Moeda.USD);
-                            simbolo = Moeda.USD.getSimboloMoeda();
-                        }
-                        break;
+                Moeda.valueOf(moedaUm).setQuantidade(quantidade);
+
+
+                try {
+                    Double cotacao = MoedasAPI.getCotacao(moedaUm, moedaDois);
+                    resultado = Moeda.valueOf(moedaUm).getQuantidade() * cotacao;
+
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
                 }
 
                 String resultadoFormatado = String.format("%.2f", resultado);
 
                 resultLabel.setText(simbolo + resultadoFormatado);
 
-//                JOptionPane.showMessageDialog(getPanel1(), "O valor convertido é " + simbolo +  resultado);
             }
         });
     }
