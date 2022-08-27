@@ -11,12 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3f6dff68-2095-4138-919d-f9224c38c1f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/MoedasAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/MoedasAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,12 +52,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "228",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "271",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

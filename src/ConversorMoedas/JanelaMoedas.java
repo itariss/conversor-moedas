@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.text.DecimalFormat;
 
 public class JanelaMoedas extends MoedasAPI {
     private JPanel panel1;
@@ -14,7 +13,12 @@ public class JanelaMoedas extends MoedasAPI {
     private JButton button1;
     private JLabel resultLabel;
 
-    private String[] moedas = {"BRL", "USD", "EUR"};
+    private String[] moedas = {"BRL " + "(" + getMoeda("BRL").getNome() + ")",
+                               "USD " + "(" + getMoeda("USD").getNome() + ")",
+                               "EUR " + "(" + getMoeda("EUR").getNome() + ")",
+                               "ARS " + "(" + getMoeda("ARS").getNome() + ")",
+                               "CLP " + "(" + getMoeda("CLP").getNome() + ")",
+                               "GPD " + "(" + getMoeda("GPD").getNome() + ")"};
 
 
     public JPanel getPanel1() {
@@ -22,7 +26,7 @@ public class JanelaMoedas extends MoedasAPI {
     }
 
     public JanelaMoedas() throws IOException, InterruptedException {
-        super();
+        this.setOpcoes();
 
         this.selecionarOpcoes();
 
@@ -39,17 +43,21 @@ public class JanelaMoedas extends MoedasAPI {
 
                 double resultado = 0;
                 String quantidade = textField1.getText().replace(",", ".");
-                String moedaUm = comboBox1.getSelectedItem().toString();
-                String moedaDois = comboBox2.getSelectedItem().toString();
+                String moedaUm = comboBox1.getSelectedItem().toString().substring(0, 3);
+                System.out.println(moedaUm);
+                String moedaDois = comboBox2.getSelectedItem().toString().substring(0, 3);
+                System.out.println(moedaDois);
                 String simbolo = Moeda.valueOf(moedaDois).getSimboloMoeda();
 
-                Moeda.valueOf(moedaUm).setQuantidade(quantidade);
-
+                if(validaInputTexto(quantidade)) {
+                    Moeda.valueOf(moedaUm).setQuantidade(quantidade);
+                } else {
+                    return;
+                }
 
                 try {
                     Double cotacao = MoedasAPI.getCotacao(moedaUm, moedaDois);
                     resultado = Moeda.valueOf(moedaUm).getQuantidade() * cotacao;
-
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 } catch (InterruptedException ex) {
@@ -57,11 +65,29 @@ public class JanelaMoedas extends MoedasAPI {
                 }
 
                 String resultadoFormatado = String.format("%.2f", resultado);
-
                 resultLabel.setText(simbolo + resultadoFormatado);
-
             }
         });
+    }
+
+    public Moeda getMoeda(String moedaSigla) {
+        return Moeda.valueOf(moedaSigla);
+    }
+
+    public boolean validaInputTexto(String target) {
+
+       if(!target.matches("\\d+\\.?,?\\d?+")) {
+           JOptionPane.showMessageDialog(getPanel1(),
+                   "Permitido apenas números e os separadores \".\" (ponto) ou \",\" (vírgula) ");
+           return false;
+       }
+            return true;
+    }
+
+    public void setOpcoes() {
+        for(String moeda: moedas) {
+            comboBox1.addItem(moeda);
+        }
     }
 
     public void selecionarOpcoes() {
