@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="conversor-moedas-challenge:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f6dff68-2095-4138-919d-f9224c38c1f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConversorMoedas/MoedasAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConversorMoedas/MoedasAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +34,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/App.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ConversorMoedas/JanelaMoedas.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ConversorMoedas/Moeda.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -43,8 +55,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "228",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "271",
     "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
