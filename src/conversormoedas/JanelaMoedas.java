@@ -1,16 +1,16 @@
-package ConversorMoedas;
+package conversormoedas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class JanelaMoedas extends MoedasAPI {
-    private JPanel panel1;
+public class JanelaMoedas {
+    private JPanel moedasPanel;
     private JTextField textField1;
     private JComboBox comboBox1;
     private JComboBox comboBox2;
-    private JButton button1;
+    private JButton botaoConverter;
     private JLabel resultLabel;
 
     private String[] moedas = {"BRL " + "(" + getMoeda("BRL").getNome() + ")",
@@ -21,11 +21,11 @@ public class JanelaMoedas extends MoedasAPI {
                                "GPD " + "(" + getMoeda("GPD").getNome() + ")"};
 
 
-    public JPanel getPanel1() {
-        return panel1;
+    public JPanel getMoedasPanel() {
+        return moedasPanel;
     }
 
-    public JanelaMoedas() throws IOException, InterruptedException {
+    public JanelaMoedas() {
         this.setOpcoes();
 
         this.selecionarOpcoes();
@@ -37,7 +37,7 @@ public class JanelaMoedas extends MoedasAPI {
             }
         });
 
-        button1.addActionListener(new ActionListener() {
+        botaoConverter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -77,7 +77,7 @@ public class JanelaMoedas extends MoedasAPI {
     public boolean validaInputTexto(String target) {
 
        if(!target.matches("\\d+\\.?,?\\d?+")) {
-           JOptionPane.showMessageDialog(getPanel1(),
+           JOptionPane.showMessageDialog(getMoedasPanel(),
                    "Permitido apenas números e os separadores \".\" (ponto) ou \",\" (vírgula) ");
            return false;
        }

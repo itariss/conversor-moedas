@@ -1,6 +1,4 @@
-package ConversorMoedas;
-
-import java.text.DecimalFormat;
+package conversormoedas;
 
 public enum Moeda {
     BRL, USD, EUR, ARS, CLP, GPD;
@@ -9,7 +7,6 @@ public enum Moeda {
 
     private String nome;
     public void setQuantidade(String quantidade) {
-
         this.quantidade = Double.parseDouble(quantidade);
     }
 

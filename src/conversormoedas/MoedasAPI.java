@@ -1,4 +1,4 @@
-package ConversorMoedas;
+package conversormoedas;
 
 import java.io.IOException;
 import java.net.URI;

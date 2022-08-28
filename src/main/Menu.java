@@ -1,4 +1,7 @@
-import ConversorMoedas.JanelaMoedas;
+package main;
+
+import conversormoedas.JanelaMoedas;
+import conversortemperaturas.JanelaTemperaturas;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -8,8 +11,9 @@ import java.io.IOException;
 public class Menu {
     private JComboBox optionsBox;
     private JPanel menu;
-    private JButton button1;
+    private JButton okButton;
     private JLabel optionsLabel;
+    private JButton sairButton;
 
     public Menu() throws IOException, InterruptedException {
         JFrame app = new JFrame();
@@ -18,10 +22,11 @@ public class Menu {
         app.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JanelaMoedas conversorMoedas = new JanelaMoedas();
+        JanelaTemperaturas conversorTemperaturas = new JanelaTemperaturas();
 
         app.add(this.getMenu());
 
-        button1.addActionListener(new ActionListener() {
+        okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -31,11 +36,19 @@ public class Menu {
                     case "Moedas":
                           default :
                               getMenu().setVisible(false);
-                              app.add(conversorMoedas.getPanel1());
+                              app.add(conversorMoedas.getMoedasPanel());
                               return;
                     case "Temperatura":
+                            getMenu().setVisible(false);
+                            app.add(conversorTemperaturas.getTemperaturasPanel());
                         break;
                 }
+            }
+        });
+        sairButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
             }
         });
     }

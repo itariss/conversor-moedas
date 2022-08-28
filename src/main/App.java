@@ -1,4 +1,5 @@
-import javax.swing.*;
+package main;
+
 import java.io.IOException;
 
 public class App {
