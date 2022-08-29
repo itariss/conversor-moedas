@@ -18,7 +18,6 @@ Esse projeto é resultado do primeiro desafio da Trilha Java Backend do programa
 
 As características solicitadas para o desafio são as seguintes:
 
-- O conversor de moeda deverá:
            - Converter de Reais a Dólar
            - Converter de Reais a Euro
            - Converter de Reais a Libras Esterlinas
