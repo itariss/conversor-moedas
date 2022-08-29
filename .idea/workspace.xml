@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f6dff68-2095-4138-919d-f9224c38c1f2" name="Changes" comment="" />
+    <list default="true" id="3f6dff68-2095-4138-919d-f9224c38c1f2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/conversormoedas/JanelaMoedas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/conversormoedas/JanelaMoedas.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conversortemperaturas/JanelaTemperaturas.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/conversortemperaturas/JanelaTemperaturas.form" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
