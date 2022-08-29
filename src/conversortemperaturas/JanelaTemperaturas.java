@@ -1,8 +1,8 @@
 package conversortemperaturas;
 
+import main.App;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class JanelaTemperaturas {
     private JComboBox comboBox2;
@@ -11,6 +11,7 @@ public class JanelaTemperaturas {
     private JButton botaoConverter;
     private JPanel temperaturasPanel;
     private JLabel resultLabel;
+    private JButton voltarButton;
 
     private String[] escalasTemperatura = {"Celsius (C)", "Fahrenheit (F)", "Kelvin (K)"};
 
@@ -19,32 +20,31 @@ public class JanelaTemperaturas {
         this.setOpcoes();
         this.selecionarOpcoes();
 
-        comboBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                selecionarOpcoes();
+        comboBox1.addActionListener(e -> selecionarOpcoes());
+
+        botaoConverter.addActionListener(e -> {
+            String escalaUm = comboBox1.getSelectedItem().toString().split("\\(")[0].substring(0, 1);
+            String escalaDois = comboBox2.getSelectedItem().toString().split("\\(")[0].substring(0, 1);
+            String temperaturaValor = textField1.getText();
+
+            if(validaInputTexto(temperaturaValor)) {
+                Escala.valueOf(escalaUm).setValor(temperaturaValor);
+            } else {
+                return;
             }
+
+            double resultado = Escala.valueOf(escalaUm).converte(escalaDois);
+
+            String resultadoFormatado = String.format("%.2f", resultado);
+            resultLabel.setText(resultadoFormatado + Escala.valueOf(escalaDois).getSimbolo());
         });
 
-        botaoConverter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String escalaUm = comboBox1.getSelectedItem().toString().split("\\(")[0].substring(0, 1);
-                String escalaDois = comboBox2.getSelectedItem().toString().split("\\(")[0].substring(0, 1);
-                String temperaturaValor = textField1.getText();
-
-                if(validaInputTexto(temperaturaValor)) {
-                    Escala.valueOf(escalaUm).setValor(temperaturaValor);
-                } else {
-                    return;
-                }
-
-                double resultado = Escala.valueOf(escalaUm).converte(escalaDois);
-
-                String resultadoFormatado = String.format("%.2f", resultado);
-                resultLabel.setText(resultadoFormatado + Escala.valueOf(escalaDois).getSimbolo());
-            }
+        voltarButton.addActionListener(e -> {
+            getTemperaturasPanel().setVisible(false);
+            App.getMenuPrincipal().getMenu().setVisible(true);
+            App.getApp().remove(getTemperaturasPanel());
         });
+
     }
 
     public JPanel getTemperaturasPanel() {

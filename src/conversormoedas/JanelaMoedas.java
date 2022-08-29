@@ -1,8 +1,8 @@
 package conversormoedas;
 
+import main.App;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class JanelaMoedas {
@@ -12,8 +12,10 @@ public class JanelaMoedas {
     private JComboBox comboBox2;
     private JButton botaoConverter;
     private JLabel resultLabel;
+    private JButton voltarButton;
 
-    private String[] moedas = {"BRL " + "(" + getMoeda("BRL").getNome() + ")",
+
+    private final String[] moedas = {"BRL " + "(" + getMoeda("BRL").getNome() + ")",
                                "USD " + "(" + getMoeda("USD").getNome() + ")",
                                "EUR " + "(" + getMoeda("EUR").getNome() + ")",
                                "ARS " + "(" + getMoeda("ARS").getNome() + ")",
@@ -30,44 +32,41 @@ public class JanelaMoedas {
 
         this.selecionarOpcoes();
 
-        comboBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               selecionarOpcoes();
+        comboBox1.addActionListener(e -> selecionarOpcoes());
+
+        botaoConverter.addActionListener(e -> {
+
+            double resultado = 0;
+
+            String quantidade = textField1.getText().replace(",", ".");
+            String moedaUm = comboBox1.getSelectedItem().toString().substring(0, 3);
+            String moedaDois = comboBox2.getSelectedItem().toString().substring(0, 3);
+            String simbolo = Moeda.valueOf(moedaDois).getSimboloMoeda();
+
+            if(validaInputTexto(quantidade)) {
+                Moeda.valueOf(moedaUm).setQuantidade(quantidade);
+            } else {
+                return;
             }
+
+            try {
+                Double cotacao = MoedasAPI.getCotacao(moedaUm, moedaDois);
+                resultado = Moeda.valueOf(moedaUm).getQuantidade() * cotacao;
+            } catch (IOException | InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            String resultadoFormatado = String.format("%.2f", resultado);
+            resultLabel.setText(simbolo + resultadoFormatado);
         });
 
-        botaoConverter.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                double resultado = 0;
-                String quantidade = textField1.getText().replace(",", ".");
-                String moedaUm = comboBox1.getSelectedItem().toString().substring(0, 3);
-                System.out.println(moedaUm);
-                String moedaDois = comboBox2.getSelectedItem().toString().substring(0, 3);
-                System.out.println(moedaDois);
-                String simbolo = Moeda.valueOf(moedaDois).getSimboloMoeda();
-
-                if(validaInputTexto(quantidade)) {
-                    Moeda.valueOf(moedaUm).setQuantidade(quantidade);
-                } else {
-                    return;
+        voltarButton.addActionListener(e -> {
+                getMoedasPanel().setVisible(false);
+                App.getMenuPrincipal().getMenu().setVisible(true);
+                App.getApp().remove(getMoedasPanel());
                 }
 
-                try {
-                    Double cotacao = MoedasAPI.getCotacao(moedaUm, moedaDois);
-                    resultado = Moeda.valueOf(moedaUm).getQuantidade() * cotacao;
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
-
-                String resultadoFormatado = String.format("%.2f", resultado);
-                resultLabel.setText(simbolo + resultadoFormatado);
-            }
-        });
+        );
     }
 
     public Moeda getMoeda(String moedaSigla) {
