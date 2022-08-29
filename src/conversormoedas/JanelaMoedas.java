@@ -75,7 +75,7 @@ public class JanelaMoedas {
 
     public boolean validaInputTexto(String target) {
 
-       if(!target.matches("\\d+\\.?,?\\d?+")) {
+       if(!target.matches("\\d+\\.?,?\\d+")) {
            JOptionPane.showMessageDialog(getMoedasPanel(),
                    "Permitido apenas números e os separadores \".\" (ponto) ou \",\" (vírgula) ");
            return false;

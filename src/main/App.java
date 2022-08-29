@@ -2,7 +2,7 @@ package main;
 
 import javax.swing.*;
 
-public class App extends JFrame {
+public class App {
 
     private static final JFrame app = new JFrame();
     private static final Menu menuPrincipal = new Menu();
