@@ -28,6 +28,4 @@ public abstract class MoedasAPI {
         return Double.parseDouble(values[2]);
     }
 
-    public MoedasAPI() throws IOException, InterruptedException {
-    }
 }

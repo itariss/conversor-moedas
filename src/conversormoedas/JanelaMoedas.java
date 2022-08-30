@@ -53,6 +53,7 @@ public class JanelaMoedas {
                 Double cotacao = MoedasAPI.getCotacao(moedaUm, moedaDois);
                 resultado = Moeda.valueOf(moedaUm).getQuantidade() * cotacao;
             } catch (IOException | InterruptedException ex) {
+                JOptionPane.showMessageDialog(getMoedasPanel(), "A conexão não pôde ser estabelecida");
                 throw new RuntimeException(ex);
             }
 
